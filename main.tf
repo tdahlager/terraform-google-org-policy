@@ -17,6 +17,7 @@
 /******************************************
   Locals configuration for module logic
  *****************************************/
+ /*
 locals {
   organization   = var.policy_for == "organization"
   folder         = var.policy_for == "folder"
@@ -32,10 +33,12 @@ locals {
   invalid_config_case_2 = var.allow_list_length + var.deny_list_length > 0 && var.enforce != null
   invalid_config        = var.policy_type == "list" && local.invalid_config_case_1 || local.invalid_config_case_2
 }
+*/
 
 /******************************************
   Checks a valid configuration for list constraint
  *****************************************/
+ /*
 resource "null_resource" "config_check" {
   /*
     This resource shows the user a message intentionally
@@ -45,9 +48,29 @@ resource "null_resource" "config_check" {
     - enforce ("true" or "false")
     the configuration is invalid and the message below is shown
   */
+  /*
   count = local.invalid_config ? 1 : 0
 
   provisioner "local-exec" {
     command = "echo 'For list constraints only one of enforce, allow, and deny may be included.'; false"
+  }
+}
+*/
+
+/*
+resource "google_compute_network" "vpc_network" {
+  project                 = "gcps-cybersec-us-sx04"
+  name                    = "vpc-network-hc-test"
+  auto_create_subnetworks = true
+  mtu                     = 1460
+}
+*/
+
+resource "google_project_organization_policy" "serial_port_policy" {
+  project    = "gcps-cybersec-us-sx04"
+  constraint = "compute.disableSerialPortAccess"
+
+  boolean_policy {
+    enforced = true
   }
 }
