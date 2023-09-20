@@ -66,6 +66,8 @@ resource "google_compute_network" "vpc_network" {
 }
 */
 
+/*hello world*/
+
 resource "google_project_organization_policy" "serial_port_policy" {
   project    = "gcps-cybersec-us-sx04"
   constraint = "compute.disableSerialPortAccess"
