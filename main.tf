@@ -68,6 +68,7 @@ resource "google_compute_network" "vpc_network" {
 
 /*hello world*/
 /*foo foo*/
+/*foo bar*/
 
 resource "google_project_organization_policy" "serial_port_policy" {
   project    = "gcps-cybersec-us-sx04"
