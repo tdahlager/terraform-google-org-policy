@@ -69,6 +69,7 @@ resource "google_compute_network" "vpc_network" {
 /*hello world*/
 /*foo foo*/
 /*foo bar*/
+/*demo*/
 
 /*new-test*/
 
