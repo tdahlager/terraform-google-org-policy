@@ -57,20 +57,3 @@ resource "null_resource" "config_check" {
 }
 */
 
-/*
-resource "google_compute_network" "vpc_network" {
-  project                 = "gcps-cybersec-us-sx04"
-  name                    = "vpc-network-hc-test"
-  auto_create_subnetworks = true
-  mtu                     = 1460
-}
-*/
-
-resource "google_project_organization_policy" "serial_port_policy" {
-  project    = "gcps-cybersec-us-sx04"
-  constraint = "compute.disableSerialPortAccess"
-
-  boolean_policy {
-    enforced = true
-  }
-}
